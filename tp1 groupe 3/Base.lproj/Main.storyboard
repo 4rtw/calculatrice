@@ -163,11 +163,17 @@
                                                 <rect key="frame" x="101" y="0.0" width="91" height="153.5"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <state key="normal" title="="/>
+                                                <connections>
+                                                    <action selector="onClickYellow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Twe-9W-w7M"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qi4-3s-GH6">
                                                 <rect key="frame" x="202" y="0.0" width="91" height="153.5"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <state key="normal" title="CE"/>
+                                                <connections>
+                                                    <action selector="onClickYellow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aFl-cJ-9CF"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UIX-7K-GBZ">
                                                 <rect key="frame" x="303" y="0.0" width="91" height="153.5"/>

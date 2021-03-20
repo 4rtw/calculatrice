@@ -11,20 +11,78 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var labelResult: UILabel!
     var currentMemory:Array<String>! = Array<String>()
+    var waitingForOperator:Bool! = false
+    
+    func reinit(){
+        currentMemory = Array<String>()
+        labelResult.text = "0"
+    }
     
     //First line
     @IBAction func onClick(_ sender: UIButton) {
-        let current = sender.currentTitle?.lowercased() ?? ""
+        //Clearing the input
+        let current = sender.currentTitle?.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        
+        //Avoid taping multiple 0 at the beginning
+        if((current) == "0" && ((current.count == 0) || (current.count == 1 && currentMemory.last == "0"))){
+            return
+        }
+        
+        //Avoid taping operator at the beginning
         if(isOperator(value: current) && currentMemory.count == 0){
             return
         }
+        
+        //Allow only operator after equals, otherwise reinit the calcul
+        if(currentMemory.count == 1 && waitingForOperator){
+            waitingForOperator = false
+            if(!isOperator(value: current)){
+                reinit()
+            }
+        }
+        
+        //Replace the operator by next operator
         if(isOperator(value:current) && isOperator(value:currentMemory.last)){
             currentMemory[currentMemory.count - 1] = current
         }
-        else{
+        
+        //New element in memory if switching number/operator
+        else if(isOperator(value: current) || currentMemory.count == 0 || isOperator(value:currentMemory.last)){
             currentMemory.append(current)
         }
+        
+        //Use the same element (concatenate) if number next number
+        else{
+            currentMemory[currentMemory.count - 1] += current
+        }
+        
+        //Updating the view
         labelResult.text = currentMemory.joined()
+    }
+    
+    @IBAction func onClickYellow(_ sender: UIButton) {
+        let current = sender.currentTitle?.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        
+        //Cannot calculate if empty
+        if(currentMemory.count == 0){
+            return
+        }
+        //Clear the result
+        if(current == "ce"){
+            reinit()
+        }
+        //Calculate
+        else if(current == "="){
+            let result = calculate2(operation: currentMemory)
+            var resultString = "\(result)"
+            if  resultString.hasSuffix(".0"){
+                resultString = resultString.replacingOccurrences(of: ".0", with: "")
+            }
+            reinit()
+            currentMemory.append(resultString)
+            labelResult.text = currentMemory.joined()
+            waitingForOperator = true
+        }
     }
     
     @IBOutlet weak var b7: UIButton!
@@ -54,6 +112,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
     
     func isOperator(value: String?) -> Bool {
         return value == "+" || value == "-" || value == "x" || value == "/"
