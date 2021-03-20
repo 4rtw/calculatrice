@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="888" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qiU-L5-EDD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qiU-L5-EDD">
                                 <rect key="frame" x="15" y="76" width="387" height="121"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="121" id="QHq-8Q-gRK"/>
@@ -163,17 +163,11 @@
                                                 <rect key="frame" x="101" y="0.0" width="91" height="153.5"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <state key="normal" title="="/>
-                                                <connections>
-                                                    <action selector="onClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wKR-6z-Ona"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qi4-3s-GH6">
                                                 <rect key="frame" x="202" y="0.0" width="91" height="153.5"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <state key="normal" title="CE"/>
-                                                <connections>
-                                                    <action selector="onClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ma7-rY-Mnw"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UIX-7K-GBZ">
                                                 <rect key="frame" x="303" y="0.0" width="91" height="153.5"/>
